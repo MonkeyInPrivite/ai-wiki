@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kindle Modding Wiki (Condensed Copy)</title>
+  <style>
+    :root {
+      --bg: #0f1217;
+      --surface: #141820;
+      --text: #e6e9ef;
+      --muted: #a7b0c0;
+      --accent: #7aa2f7;
+      --accent-2: #9ece6a;
+      --border: #232838;
+      --code-bg: #0b0d12;
+      --code-text: #c0caf5;
+      --maxw: 860px;
+      --radius: 10px;
+    }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,sans-serif; }
+    .container { max-width:var(--maxw); margin:0 auto; padding:24px; }
+    header { background:var(--surface); padding:16px 24px; border-bottom:1px solid var(--border); }
+    header h1 { margin:0; }
+    nav.toc { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin:16px 0; }
+    nav.toc h2 { margin:0 0 10px; font-size:1.1rem; }
+    nav.toc ul { list-style:none; padding:0; margin:0; }
+    nav.toc li { margin:6px 0; }
+    nav.toc li.level-h2 a { font-weight:600; }
+    nav.toc li.level-h3 a { color:var(--muted); }
+    h1,h2,h3,h4 { margin:1.2em 0 0.6em; }
+    h2 { border-bottom:1px solid var(--border); padding-bottom:6px; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { color:var(--accent-2); text-decoration:underline; }
+    code, pre { background:var(--code-bg); color:var(--code-text); border-radius:8px; }
+    code { padding:2px 6px; }
+    pre { padding:12px; overflow:auto; border:1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kindle Modding Wiki (Sample Condensed Copy)</h1>
+  </header>
+  <div class="container">
+    <!-- Table of Contents -->
+    <nav id="toc" class="toc">
+      <h2>Contents</h2>
+      <ul></ul>
+    </nav>
+
+    <!-- Example content -->
+    <section>
+      <h2>Introduction</h2>
+      <p>This is a condensed demonstration of how the Kindle Modding Wiki could look in a single HTML file with a table of contents and custom theme.</p>
+
+      <h2>Jailbreaking</h2>
+      <p>Overview of Kindle jailbreaking methods (placeholder text).</p>
+
+      <h3>Firmware Versions</h3>
+      <p>Details about supported firmware versions (placeholder text).</p>
+
+      <h2>Development</h2>
+      <p>Notes on development, tools, and resources (placeholder text).</p>
+
+      <h2>Resources</h2>
+      <p>Links to external resources (placeholder text).</p>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toc = document.querySelector('#toc ul');
+      const headings = [...document.querySelectorAll('h2, h3, h4')];
+      headings.forEach(h => {
+        if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'');
+        const li = document.createElement('li');
+        li.className = `level-${h.tagName.toLowerCase()}`;
+        const a = document.createElement('a');
+        a.href = `#${h.id}`;
+        a.textContent = h.textContent.trim();
+        li.appendChild(a);
+        toc.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
